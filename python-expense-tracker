@@ -1,0 +1,27 @@
+import json
+
+def add_expense():
+    amount = input("Enter amount: ")
+    category = input("Enter category: ")
+
+    expense = {
+        "amount": amount,
+        "category": category
+    }
+
+    with open("expenses.json", "a") as file:
+        json.dump(expense, file)
+        file.write("\n")
+
+    print("Expense added!")
+
+while True:
+    print("\n1. Add Expense")
+    print("2. Exit")
+
+    choice = input("Choose option: ")
+
+    if choice == "1":
+        add_expense()
+    elif choice == "2":
+        break
